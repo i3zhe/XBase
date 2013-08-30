@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+Title: <%= @problem.name %>  <br>
+Description: <%= @problem.description %> <br> <br>
+
+<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<%= link_to 'Back', problems_path %>

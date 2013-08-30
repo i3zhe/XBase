@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+<%= stylesheet_link_tag    "home", :media => "all" %>
+
+<div class="pure-g-r">
+
+  <div class="pure-u-1-2">
+    <%= render :partial => "hot_problems", :collection => @hot_problems, :as => :hot_problem %>
+  </div>
+  <div class="pure-u-1-2">
+    <%= render :partial => "latest_problems", :collection => @latest_problems, :as => :latest_problem %>
+  </div>
+  
+
+</div>
