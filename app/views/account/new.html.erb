@@ -1,0 +1,33 @@
+<% content_for :sitemap do %><span class="current">Join Us</span><% end %>
+<div class="content">
+    <div class="box">
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= render "shared/error_messages", :target => resource %>
+      <fieldset>
+        <legend>Register User</legend>
+        <%= f.input :login %>
+        <%= f.input :name %>
+        <%= f.input :email, :input_html => { :class => "span5", :placeholder => "foo@bar.com" } %>
+        <div class="control-group">
+          <div class="controls">
+            <label for="user_email_public" class="checkbox"><%= f.check_box :email_public, :checked => true %> Public Email</label>
+          </div>
+        </div>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <div class="form-actions">
+          <%= f.submit "Register", :class => "btn btn-primary", 'data-disable-with' => "Submitting" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="box">
+    <h2>Already have an account?</h2>
+    <p style="line-height:20px;">
+      <%= render :partial => "devise/shared/links" %>
+    </p>
+  </div>
+</div>

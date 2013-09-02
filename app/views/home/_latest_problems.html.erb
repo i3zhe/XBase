@@ -1,3 +1,7 @@
-<%= latest_problem.name %>
+<h3>Latest</h3>
 
-<%= latest_problem.description %>
+Subject: <%= latest_problem.name %> <br>
+
+Content: <%= latest_problem.description %> <br><br>
+
+<%= link_to "Explore", problems_path %>

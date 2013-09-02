@@ -1,10 +1,12 @@
 Xbase::Application.routes.draw do
-  # resources :answers
-
 
   # resources :problems
 
-  devise_for :users
+  devise_for :users, :path => "account", :controllers => {
+    :registrations => :account,
+    :sessions => :sessions,
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
 
   resources :problems do
     resources :answers
@@ -12,6 +14,8 @@ Xbase::Application.routes.draw do
 
   resources :tags
 
+  resources :users
+  
   match 'search' => "home#search", :as => :search
 
   # The priority is based upon order of creation:

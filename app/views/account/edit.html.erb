@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="box">
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :enctype =>  "multipart/form-data" }) do |f| %>
+      <%= render "shared/error_messages", :target => resource if params[:by].blank? %>
+      <fieldset>
+        <legend><%= t("users.personal_information")%></legend>
+        <%= f.input :name %>
+        <%= f.input :avatar %>
+        <%= f.input :email, :input_html => { :class => "span4", :disabled => (!resource.email.blank?) } %>
+        <div class="control-group">
+          <div class="controls">
+            <label for="user_email_public" class="checkbox"><%= f.check_box :email_public %> Public Email</label>
+          </div>
+        </div>
+        
+        <%= f.input :bio, :as => :text, :input_html => { :class => "xxlarge", :rows => "6" } %>
+        <div class="form-actions">
+            <%= f.submit "Save", :class => "btn btn-primary", 'data-disable-with' => "Saving" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+  <div class="box">
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name,:by => :pwd), :html => { :method => :put }) do |f| %>
+      <%= render "shared/error_messages", :target => resource if params[:by] == "pwd" %>
+      <fieldset>
+        <legend><%= t("users.edit_password")%></legend>
+        <input type="hidden" name="user[:by]" value="pwd" />
+        <%= f.input :current_password %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <div class="form-actions">
+          <%= f.submit "Change Password", :class => "btn btn-success", 'data-disable-with' => "Saving" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
