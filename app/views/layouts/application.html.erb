@@ -23,9 +23,12 @@
   </div>
 </div>
 
-<%= render :partial => "shared/search" %>
-
-<%= yield %>
+<div class="container"> 
+  <div id="main" class="container-fluid">
+    <%= render :partial => "shared/search" %>
+    <%= yield %>
+  </div> 
+</div>
 
 </body>
 </html>

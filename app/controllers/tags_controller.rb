@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.select("id,name").find_by_name(params[:q]) || Tag.select("id,name").all
+    @tags = Tag.id_and_name.find_by_name(params[:q]) || Tag.id_and_name.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,5 +1,5 @@
 class ProblemsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:create, :update, :edit, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show]
   # GET /problems
   # GET /problems.json
   def index
@@ -45,7 +45,17 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(params[:problem])
     @problem.user_id = current_user.id
-
+    
+    if params[:problem][:tag_names].present?
+      tag_names = params[:problem][:tag_names].split ',' 
+      i = 0
+      tag_names.each do |tag|
+        [:problem][:tags_attributes][i][:name] = tag
+        [:problem][:tags_attributes][i][:user_id] = current_user.id
+        i += 1
+      end
+    end
+    
     respond_to do |format|
       if @problem.save
         format.html { redirect_to @problem, notice: 'Problem was successfully created.' }

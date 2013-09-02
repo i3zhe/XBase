@@ -2,8 +2,8 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready(function(){
-  $('#new_tag').select2({
-    tags: true,
+  $('#new_tag_hidden').select2({
+    tags: [],
     tokenSeparators: [",", " "],
     createSearchChoice: function(term, data) {
       return {
@@ -23,10 +23,12 @@ $(document).ready(function(){
       results: function(data, page) {
         return {
           results: $.parseJSON(data)
-        };
+        }
       }
     }
   });
+
+
 });
   
     

@@ -6,13 +6,14 @@
       <fieldset>
         <legend>Register User</legend>
         <%= f.input :login %>
-        <%= f.input :name %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
         <%= f.input :email, :input_html => { :class => "span5", :placeholder => "foo@bar.com" } %>
-        <div class="control-group">
+        <!-- <div class="control-group">
           <div class="controls">
             <label for="user_email_public" class="checkbox"><%= f.check_box :email_public, :checked => true %> Public Email</label>
           </div>
-        </div>
+        </div> -->
         <%= f.input :password %>
         <%= f.input :password_confirmation %>
         <div class="form-actions">

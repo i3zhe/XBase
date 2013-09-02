@@ -8,7 +8,9 @@ class Problem < ActiveRecord::Base
   # accepts_nested_attributes_for :problem_tag_ships
   accepts_nested_attributes_for :tags, reject_if: :reject_tags, :allow_destroy => true
 
+  attr_accessor :tag_names
   attr_accessible :description, :name, :user_id, :answers_attributes, :tags_attributes
+
 
   validates :name, :description, :presence => true
 

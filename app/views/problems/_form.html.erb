@@ -23,8 +23,8 @@
 
   <%= f.fields_for :tags do |builder| %>  
   <p>
-    <%= builder.label :tags %> <br>
-    <%= builder.text_field :name, :id => 'new_tag' %>
+    <%= builder.label :tags %> <br>    
+    <input type="hidden" id="new_tag_hidden" name="problem[tag_names]" style="width:300px" value="" tabindex="-1" class="select2-offscreen">
   </p>
   <% end %>
 
